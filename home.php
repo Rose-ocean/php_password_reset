@@ -9,16 +9,18 @@ $email = $_POST['email'];
 $pass = $_POST['pwd'];
 
 
-if(!empty($email) && !empty($pass)){
-    $query = " INSERT INTO login (email, pass) VALUES ('$email', '$pass')";
+  if(!empty($email) && !empty($pass)){
+    $query = "SELECT * FROM login WHERE email = '$email' ";
     $fire = mysqli_query($conn, $query);
-    if($fire){
-       
-       header("location: ./feed.php");
+    if(mysqli_num_rows($fire) >= 0){
+     echo " one match found";
     }else{
-    echo "Can't create  your account";
+      echo " fired";
     }
-}
+  
+  }else{
+    echo "Field cant be empty";
+  }
 
 }
 
@@ -44,16 +46,16 @@ if(!empty($email) && !empty($pass)){
     <br>
 
     <div class="form-group">
-      <input type="submit" class="btn btn-warning" id="pwd"  name="submit">
+      <input type="submit" class="btn btn-warning" id="pwd"   value="Login" name="submit">
     </div>
 
     <br><br><br>
  
 
 <div class="form-group">
-  <input type="submit" class="btn btn-warning" id="pwd"  name="submit">
+  <input type="submit" class="btn btn-warning" id="pwd"   value="Forget Password 😥 !!" name="submit">
 </div> <div class="form-group">
-  <input type="submit" class="btn btn-warning" id="pwd"  name="submit">
+<button type="submit" class="btn btn-warning"><a href=" ./create.php   "> Do not have and acocunt ?</a></button>
 </div>
 
   </form>

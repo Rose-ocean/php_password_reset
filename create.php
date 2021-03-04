@@ -47,6 +47,9 @@ if(!empty($email) && !empty($pass)){
     
       <input type="submit" class="btn btn-warning" id="pwd"  name="submit">
     </div>
+  <div class="form-group">
+  <button type="submit" class="btn btn-warning"><a href=" ./home.php   "> Already have an acocunt ?</a></button>
+  </div>
 
   </form>
 </div>
