@@ -10,18 +10,16 @@ $pass = $_POST['pwd'];
 
 
   if(!empty($email) && !empty($pass)){
-    $query = "SELECT * FROM login WHERE email = '$email' ";
+    $query = "SELECT * FROM login WHERE email = '$email' AND pass = '$pass' ";
     $fire = mysqli_query($conn, $query);
-    if(mysqli_num_rows($fire) >= 0){
-     echo " one match found";
+    if(mysqli_num_rows($fire) == 1){
+     header("location: ./feed.php");
     }else{
-      echo " fired";
+       echo "<script>alert(' Password Donot Match')</script>";
     }
-  
   }else{
     echo "Field cant be empty";
   }
-
 }
 
 
@@ -30,7 +28,7 @@ $pass = $_POST['pwd'];
 
 ?>
 
-
+<script>alert(' Password Donot Match')</script>
 <div class="container">
   <h2>  login</h2>
   <form action="#" method="POST">
