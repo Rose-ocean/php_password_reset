@@ -4,31 +4,21 @@ include './includes/header.php';
 ?>
 <?php
 if(isset($_POST['submit'])){
-
 $email = $_POST['email'];
 $pass = $_POST['pwd'];
-
 
 if(!empty($email) && !empty($pass)){
     $query = " INSERT INTO login (email, pass) VALUES ('$email', '$pass')";
     $fire = mysqli_query($conn, $query);
     if($fire){
-       
        header("location: ./feed.php");
     }else{
     echo "Can't create  your account";
     }
 }
-
 }
 
-
-
-
-
 ?>
-
-
 <div class="container">
   <h2>  Create Account</h2>
   <form action="#" method="POST">
